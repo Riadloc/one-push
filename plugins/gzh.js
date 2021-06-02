@@ -5,7 +5,8 @@ const { getToday } = require('../constants/utils.js');
 const today = getToday();
 
 async function gzh() {
-  const files = await fs.readdir(path.join(__dirname, `../../${today}`));
+  const filesTxt = await fs.readdir(path.join(__dirname, `../constants/${today}.txt`));
+  const files = filesTxt.replace(/(\.html)\s/g, '$1&').split('&');
   const regex = /\.html$/;
   const baseUrl = 'https://riadloc.github.io/one-push/';
   const links = files

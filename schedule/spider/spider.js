@@ -1,12 +1,13 @@
 'use strict'
-const puppeteer = require('puppeteer-core');
+const puppeteer = require('puppeteer');
 const fs = require('fs/promises');
 const path = require('path');
 const dayjs = require('dayjs');
+const gzh = require('../../constants/gongzhonghao.json');
 
 ;(async () => {
   const browser = await puppeteer.launch({
-    executablePath: path.resolve(__dirname, '../chrome-mac/Chromium.app/Contents/MacOS/Chromium'),
+    // executablePath: path.resolve(__dirname, '../chrome-mac/Chromium.app/Contents/MacOS/Chromium'),
     headless: false,
   });
   const page = await browser.newPage();

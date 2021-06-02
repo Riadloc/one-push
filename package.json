@@ -4,14 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "crawl": "node schedule/spider.js",
-    "push": "node schedule/push.js"
+    "crawl": "node schedule/spider",
+    "push": "node schedule/push"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "puppeteer-core": "^9.1.1",
+    "puppeteer": "^5.2.1",
     "axios": "^0.21.1",
     "dayjs": "^1.10.5"
   }

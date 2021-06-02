@@ -2,7 +2,7 @@ const axios = require('axios');
 
 let token;
 
-function getShici() {
+async function getShici() {
   return axios.get('https://v2.jinrishici.com/one.json?client=npm-sdk/1.0', {
     params: {
       'X-User-Token': token
