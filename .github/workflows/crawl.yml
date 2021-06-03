@@ -5,7 +5,7 @@ name: CRAWL CI
 
 on:
   push:
-    - branches: [ main ]
+    branches: [ main ]
 
 jobs:
   build:
