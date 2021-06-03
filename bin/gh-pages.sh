@@ -1,3 +1,4 @@
+#!/usr/bin
 GITHUB_ACTOR=$1
 REPOSITORY_PATH=$2
 CUR_DIR=$(pwd)
