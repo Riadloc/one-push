@@ -5,7 +5,7 @@ name: PUSH CI
 
 on:
   push:
-    branches: [ ph-pages ]
+    branches: [ gh-pages ]
 
 jobs:
   build:

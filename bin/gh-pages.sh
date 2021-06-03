@@ -4,7 +4,7 @@ REPOSITORY_PATH=$2
 CUR_DIR=$(pwd)
 TODAY=$(TZ=UTC-8 date +%F)
 DIR="$CUR_DIR/schedule/spider/$TODAY"
-PAGE_BRANCH="ph-pages"
+PAGE_BRANCH="gh-pages"
 cd $DIR
 git init
 git config user.name "${GITHUB_ACTOR}"
