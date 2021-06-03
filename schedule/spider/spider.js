@@ -8,7 +8,6 @@ const gzh = require('../../constants/gongzhonghao.json');
 async function spider() {
   const browser = await puppeteer.launch({
     // executablePath: path.resolve(__dirname, '../chrome-mac/Chromium.app/Contents/MacOS/Chromium'),
-    headless: false,
   });
   const page = await browser.newPage();
   try {
@@ -16,7 +15,7 @@ async function spider() {
     for (const item of gzh) {
       const { id, name } = item;
       await page.goto(`${url}${id}`);
-      await page.waitForSelector('.news-box');
+      await page.waitForTimeout(1000);
       const linkHref = await page.$eval('.news-box ul li dl:nth-last-of-type(1) a', el => el.href);
       await page.goto(linkHref);
       await page.waitForNavigation();
