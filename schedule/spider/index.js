@@ -8,7 +8,7 @@ const spider = require('./spider');
   await spider();
   const args = process.argv.slice(2);
   const bashFile = path.join(__dirname, '../../bin/gh-pages.sh');
-  child_process.spawn(`sudo chmod +x ${bashFile}`, args, {
+  child_process.spawn(`sh ${bashFile}`, args, {
     stdio: 'inherit'
   });
 })();
