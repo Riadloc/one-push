@@ -2,7 +2,7 @@ GITHUB_ACTOR=$1
 REPOSITORY_PATH=$2
 CUR_DIR=$(pwd)
 TODAY=$(TZ=UTC-8 date +%F)
-DIR="$CUR_DIR/$TODAY"
+DIR="$CUR_DIR/schedule/spider/$TODAY"
 cd $DIR
 git init
 git config user.name "${GITHUB_ACTOR}"

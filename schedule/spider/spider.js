@@ -6,10 +6,9 @@ const dayjs = require('dayjs');
 const gzh = require('../../constants/gongzhonghao.json');
 
 async function spider() {
-  const browser = await puppeteer.launch({
-    // executablePath: path.resolve(__dirname, '../chrome-mac/Chromium.app/Contents/MacOS/Chromium'),
-  });
+  const browser = await puppeteer.launch();
   const page = await browser.newPage();
+  page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36');
   try {
     const url = 'https://weixin.sogou.com/weixin?type=1&query=';
     const dir = path.join(__dirname, `/${dayjs(new Date()).format('YYYY-MM-DD')}`);
@@ -22,7 +21,6 @@ async function spider() {
       const { id, name } = item;
       await page.goto(`${url}${id}`);
       await page.waitForTimeout(3000);
-      await page.screenshot({path: path.join(dir, `/${name} screenshot.png`)});
       const linkHref = await page.$eval('.news-box ul li dl:nth-last-of-type(1) a', el => el.href);
       await page.goto(linkHref);
       await page.waitForTimeout(3000);
