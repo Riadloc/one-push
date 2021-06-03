@@ -4,8 +4,8 @@
 name: PUSH CI
 
 on:
-  schedule:
-    - cron: '0 18 * * *'
+  push:
+    - branches: [ ph-pages ]
 
 jobs:
   build:

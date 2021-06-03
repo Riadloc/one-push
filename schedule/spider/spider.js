@@ -5,7 +5,7 @@ const path = require('path');
 const dayjs = require('dayjs');
 const gzh = require('../../constants/gongzhonghao.json');
 
-;(async () => {
+async function spider() {
   const browser = await puppeteer.launch({
     // executablePath: path.resolve(__dirname, '../chrome-mac/Chromium.app/Contents/MacOS/Chromium'),
     headless: false,
@@ -36,4 +36,6 @@ const gzh = require('../../constants/gongzhonghao.json');
   } catch (error) {
     console.error(error);
   }
-})();
+}
+
+module.exports = spider;
