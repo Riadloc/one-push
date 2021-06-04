@@ -20,6 +20,7 @@ JSON_PATH="$CUR_DIR/constants/$TODAY.txt"
 echo $FILES
 echo $FILES >> $JSON_PATH
 cd $CUR_DIR
+git pull
 git add $JSON_PATH
 git commit -m 'chore: add ariticle json'
 git push origin main
