@@ -11,8 +11,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "puppeteer": "^5.2.1",
     "axios": "^0.21.1",
-    "dayjs": "^1.10.5"
+    "dayjs": "^1.10.5",
+    "puppeteer": "^5.2.1"
   }
 }
