@@ -35,6 +35,6 @@ jobs:
         PUBLISH_REPOSITORY: Riadloc/one-push
       run: |
         REPOSITORY_PATH="https://x-access-token:${PERSONAL_TOKEN}@github.com/${PUBLISH_REPOSITORY}.git"
-        npm run crawl ${GITHUB_ACTOR} ${PUBLISH_REPOSITORY}
+        npm run crawl ${GITHUB_ACTOR} ${REPOSITORY_PATH}
     - run: echo "RUN crawl done"
     

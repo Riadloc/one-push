@@ -21,5 +21,6 @@ echo $FILES
 echo $FILES >> $JSON_PATH
 cd $CUR_DIR
 git add $JSON_PATH
-git push origin main
+git commit -m 'chore: add ariticle json'
+git push
 echo $?
