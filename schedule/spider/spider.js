@@ -6,16 +6,18 @@ const path = require('path');
 const dayjs = require('dayjs');
 const gzh = require('../../constants/gongzhonghao.json');
 
-async function mkdir(path) {
+async function mkdir(relPath) {
   const workDir = process.cwd();
-  for (const dir of path.split('/')) {
+  let newDir = '';
+  for (const dir of relPath.split('/')) {
+    newDir += (newDir ? '/' : '') + dir;
     try {
-      await fs.mkdir(dir);
+      await fs.mkdir(newDir);
     } catch (error) {
-      //
+      console.log(error);
     }
   }
-  return `${workDir}/${path}`;
+  return `${workDir}/${relPath}`;
 }
 
 async function spider() {
@@ -26,7 +28,7 @@ async function spider() {
   page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36');
   try {
     const url = 'https://weixin.sogou.com/weixin?type=1&query=';
-    const dir = mkdir(`docs/${dayjs(new Date()).format('YYYY-MM-DD')}`);
+    const dir = await mkdir(`docs/${dayjs(new Date()).format('YYYY-MM-DD')}`);
     for (const item of gzh) {
       const { id, name } = item;
       await page.goto(`${url}${id}`);
