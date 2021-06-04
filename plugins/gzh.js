@@ -8,7 +8,7 @@ async function gzh() {
   const fileList = await fs.readdir(path.join(__dirname, `../docs/${today}`));
   const regex = /\.html$/;
   const files = fileList.filter(regex.test(regex));
-  const baseUrl = 'https://riadloc.github.io/one-push/';
+  const baseUrl = `https://riadloc.github.io/one-push/${today}/`;
   const links = files
     .map(f => ({
       title: f.replace(regex, ''),

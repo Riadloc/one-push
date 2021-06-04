@@ -29,8 +29,11 @@ jobs:
           ${{ runner.os }}-build-${{ env.cache-name }}-
     - name: install dependencies
       run: npm i
-    - name: cron
+    - name: crawl
       run: |
         npm run crawl ${GITHUB_ACTOR}
-    - run: echo "RUN crawl done"
+    - name: push
+      run: |
+        npm run push
+
     
