@@ -38,7 +38,11 @@ async function spider() {
       await page.goto(linkHref);
       await page.waitForTimeout(3000);
       await page.waitForSelector('#activity-detail');
-      const tilte = await page.$eval('#activity-name', el => el.innerText);
+      await page.$eval('head', el => {
+        const meta = document.createRange().createContextualFragment('<meta name="referrer" content="never">');
+        el.appendChild(meta);
+      });
+      const tilte = await page.title();
       const contents = await page.content();
       await fs.writeFile(path.join(dir, `/[${name}] ${tilte}.html`), contents, 'utf-8');
       await page.waitForTimeout(2000);

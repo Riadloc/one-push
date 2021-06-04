@@ -7,12 +7,12 @@ const today = getToday();
 async function gzh() {
   const fileList = await fs.readdir(path.join(__dirname, `../docs/${today}`));
   const regex = /\.html$/;
-  const files = fileList.filter(regex.test(regex));
+  const files = fileList.filter(fileName => regex.test(fileName));
   const baseUrl = `https://riadloc.github.io/one-push/${today}/`;
   const links = files
-    .map(f => ({
-      title: f.replace(regex, ''),
-      messageURL: baseUrl + f
+    .map(fileName => ({
+      title: fileName.replace(regex, ''),
+      messageURL: baseUrl + fileName
     }))
   return {
     msgtype: 'feedCard',
